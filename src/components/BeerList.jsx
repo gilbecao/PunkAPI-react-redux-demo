@@ -6,11 +6,13 @@ import BeerItem from './BeerItem';
 export default function BeerList({ beers }) {
   return (
     <ul>
-      {beers.map((beer) => <BeerItem beer={beer} />)}
+      {beers.map((beer) => <BeerItem beer={beer} key={beer.id} />)}
     </ul>
   );
 }
 
 BeerList.propTypes = {
-  beers: PropTypes.shape([]).isRequired,
+  beers: PropTypes.arrayOf(
+    PropTypes.shape({}),
+  ).isRequired,
 };
