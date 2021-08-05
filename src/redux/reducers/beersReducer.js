@@ -1,6 +1,6 @@
 import actionTypes from '../actions/actionTypes';
 
-export default function beersReducer(beers = { data: [], filtered: [] }, action) {
+export default function beersReducer(beers = { data: [], filtered: null }, action) {
   let nextBeers = beers;
 
   switch (action.type) {

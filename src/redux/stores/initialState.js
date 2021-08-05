@@ -1,8 +1,11 @@
 import beersMock from '../../mocks/beers.mock';
 
+const [randomBeer, ...data] = beersMock;
+
 export default {
   beers: {
-    data: beersMock,
-    filtered: beersMock,
+    data,
+    filtered: data,
   },
+  randomBeer,
 };

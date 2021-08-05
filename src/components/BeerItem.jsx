@@ -3,13 +3,17 @@ import { PropTypes } from 'prop-types';
 
 export default function BeerItem({ beer }) {
   return (
-    <li>
-      <picture>
-        <img src={beer.image_url} alt="" />
-      </picture>
-      <h3>{beer.name}</h3>
-      <p>{beer.description}</p>
-    </li>
+    (beer?.name && beer?.description)
+      ? (
+        <li>
+          <picture>
+            <img src={beer?.image_url} alt={beer?.name} />
+          </picture>
+          <h3>{beer?.name}</h3>
+          <p>{beer?.description}</p>
+        </li>
+      )
+      : ''
   );
 }
 

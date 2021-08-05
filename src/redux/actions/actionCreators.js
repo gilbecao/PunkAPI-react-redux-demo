@@ -29,11 +29,11 @@ export function loadRandomBeer(isNonAlcoholic = false) {
     }
 
     try {
-      const { data } = await axios(url);
+      const { data: [beer] } = await axios(url);
 
       dispatch({
         type,
-        beer: data,
+        beer,
       });
     } catch (error) {
       dispatch({

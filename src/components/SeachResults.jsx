@@ -3,12 +3,7 @@ import React from 'react';
 
 export default function SeachResults(List) {
   function SearchResults(props) {
-    return (
-      <>
-        <h2>Search Results</h2>
-        <List {...props} />
-      </>
-    );
+    return <List {...props} />;
   }
 
   const ListComponentName = List.displayName
