@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
 import configureStore from './redux/stores';
-import initialState from './redux/stores/initialState';
 import Dashboard from './pages/Dashboard';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={configureStore(initialState)}>
+    <Provider store={configureStore()}>
       <Dashboard />
     </Provider>
   </React.StrictMode>,
