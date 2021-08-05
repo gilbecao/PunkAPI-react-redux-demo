@@ -1,6 +1,6 @@
 import actionTypes from '../actions/actionTypes';
 
-export default function randomBeerReducer(beer = {}, action) {
+export default function randomBeerReducer(beer = null, action) {
   let nextBeer = beer;
 
   switch (action.type) {
