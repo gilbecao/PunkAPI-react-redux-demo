@@ -1,4 +1,4 @@
-import beersMock from '../../mocks/beers.mock';
+import beersMock from './beers.mock';
 
 const [randomBeer, ...data] = beersMock;
 
