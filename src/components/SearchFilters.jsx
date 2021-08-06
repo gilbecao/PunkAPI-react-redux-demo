@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { loadBeers } from '../redux/actions/actionCreators';
 
 export default function SearchFilters() {
-  const [searchTerm, setSearchTerm] = useState();
+  const [searchTerm, setSearchTerm] = useState('');
   const [filterBy, setFilterBy] = useState();
+  const dispatch = useDispatch();
 
   const changeEventMap = {
     search_term: setSearchTerm,
     filterBy: setFilterBy,
   };
 
-  function handleChange({ target: { name, value } }) {
+  function handleInputChange({ target: { name, value } }) {
     changeEventMap[name](value);
+  }
+
+  function handleSearchClick() {
+    if (!filterBy || !searchTerm.trim()) return;
+    dispatch(loadBeers(filterBy, searchTerm));
   }
 
   return (
@@ -22,40 +30,34 @@ export default function SearchFilters() {
           name="search_term"
           placeholder="Search..."
           value={searchTerm}
-          onChange={handleChange}
+          onChange={handleInputChange}
         />
         <fieldset>
-          <label htmlFor="name">
+          <label htmlFor="beer_name">
             <input
+              id="beer_name"
               type="radio"
               name="filterBy"
-              value="name"
-              onChange={handleChange}
+              value="beer_name"
+              onChange={handleInputChange}
             />
             by name
           </label>
-          <label htmlFor="description">
+          <label htmlFor="brewed_before">
             <input
+              id="brewed_before"
               type="radio"
               name="filterBy"
-              value="description"
-              onChange={handleChange}
-            />
-            by description
-          </label>
-          <label htmlFor="brewed_date">
-            <input
-              type="radio"
-              name="filterBy"
-              value="brewed_date"
-              onChange={handleChange}
+              value="brewed_before"
+              onChange={handleInputChange}
             />
             by brewed_date
           </label>
         </fieldset>
         <button
           type="button"
-          disabled={!filterBy}
+          disabled={!(filterBy && searchTerm.trim())}
+          onClick={handleSearchClick}
         >
           Search
 

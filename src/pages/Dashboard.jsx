@@ -4,10 +4,12 @@ import SearchResults from '../components/SeachResults';
 import BeerList from '../components/BeerList';
 import RandomBeer from '../components/RandomBeer';
 import SearchFilters from '../components/SearchFilters';
+import BeerListEmpty from '../components/BeerListEmpty';
 
 import { loadBeers } from '../redux/actions/actionCreators';
 
 const BeerSearchResult = SearchResults(BeerList);
+const BeerSearchEmpty = SearchResults(BeerListEmpty);
 
 export default function Dashboard() {
   const filteredBeers = useSelector(
@@ -25,7 +27,13 @@ export default function Dashboard() {
       <RandomBeer />
       <SearchFilters />
       <h2>Search Results</h2>
-      {filteredBeers && <BeerSearchResult beers={filteredBeers} />}
+      {
+      filteredBeers && (
+        filteredBeers.length
+          ? <BeerSearchResult beers={filteredBeers} />
+          : <BeerSearchEmpty />
+      )
+    }
     </>
   );
 }

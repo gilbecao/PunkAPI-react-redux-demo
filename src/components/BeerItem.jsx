@@ -21,6 +21,6 @@ BeerItem.propTypes = {
   beer: PropTypes.shape({
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    image_url: PropTypes.string.isRequired,
+    image_url: PropTypes.string,
   }).isRequired,
 };

@@ -1,10 +1,16 @@
 import axios from 'axios';
 import actionTypes from './actionTypes';
 
-export function loadBeers() {
+export function loadBeers(searchBy, searchTerm) {
   return async (dispatch) => {
+    let url = process.env.REACT_APP_PUNK_API;
+
+    if (searchBy && searchTerm) {
+      url += `?${searchBy}=${searchTerm}`;
+    }
+
     try {
-      const { data } = await axios(process.env.REACT_APP_PUNK_API);
+      const { data } = await axios(url);
 
       dispatch({
         type: actionTypes.LOAD_BEERS,
