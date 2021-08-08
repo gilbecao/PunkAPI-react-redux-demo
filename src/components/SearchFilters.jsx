@@ -33,7 +33,7 @@ export default function SearchFilters() {
   }
 
   return (
-    <>
+    <section className="search-area">
       <h2>Search</h2>
       <div>
         <input
@@ -69,12 +69,13 @@ export default function SearchFilters() {
         </fieldset>
         <button
           type="button"
+          className="btn btn-warning"
           disabled={!(filterBy && searchTerm.trim() && isSearchValid)}
           onClick={handleSearchClick}
         >
           Search
         </button>
       </div>
-    </>
+    </section>
   );
 }

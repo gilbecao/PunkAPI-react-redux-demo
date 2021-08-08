@@ -18,25 +18,27 @@ export default function RandomBeer() {
 
   return (
     beer && (
-    <section>
-      <BeerItem beer={beer} />
-      <div>
-        <button
-          type="button"
-          onClick={() => dispatchLoadRandom()}
-        >
-          Another Beer
-        </button>
-        <button
-          type="button"
-          onClick={() => dispatchLoadRandom(true)}
-        >
-          Random non
-          <br />
-          alcoholic Beer
-        </button>
-      </div>
-    </section>
+      <section className="beer-item">
+        <BeerItem beer={beer} />
+        <div className="beer-item__buttons">
+          <button
+            type="button"
+            className="btn btn-warning"
+            onClick={() => dispatchLoadRandom()}
+          >
+            Another Beer
+          </button>
+          <button
+            type="button"
+            className="btn btn-warning"
+            onClick={() => dispatchLoadRandom(true)}
+          >
+            Random non
+            <br />
+            alcoholic Beer
+          </button>
+        </div>
+      </section>
     )
   );
 }

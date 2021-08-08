@@ -4,10 +4,27 @@ import { PropTypes } from 'prop-types';
 import BeerItem from './BeerItem';
 
 export default function BeerList({ beers }) {
+  const goTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
-    <ul>
-      {beers.map((beer) => <BeerItem beer={beer} key={beer.id} />)}
-    </ul>
+    <>
+      <ul>
+        {beers.map((beer) => <BeerItem beer={beer} key={beer.id} />)}
+      </ul>
+      <span
+        className="go-top--link"
+        onClick={() => goTop()}
+        onKeyPress={() => goTop()}
+        role="button"
+        tabIndex="0"
+      >
+        ^
+        <br />
+        Back to Top
+      </span>
+    </>
   );
 }
 

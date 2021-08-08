@@ -10,14 +10,14 @@ export default function SeachResultsContainer({ loadedBeers }) {
   const BeerSearchEmpty = SearchResults(BeerListEmpty);
 
   return loadedBeers && (
-    <>
+    <section className="results-area">
       <h2>Search Results</h2>
       {
         loadedBeers.length
           ? <BeerSearchResult beers={loadedBeers} />
           : <BeerSearchEmpty />
       }
-    </>
+    </section>
   );
 }
 
