@@ -39,7 +39,6 @@ export default function SearchFilters() {
           <input
             type="text"
             name="search_term"
-            className="search_term"
             placeholder="Search..."
             value={searchTerm}
             onChange={handleSearchChange}
