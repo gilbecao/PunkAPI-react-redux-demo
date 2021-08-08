@@ -47,7 +47,7 @@ h1 {
 }
 
 h2 {
-  font-family: 'Circular Std Bold';
+  font-family: 'Circular Std Bold', sans-serif;
 }
 
 img {
@@ -88,6 +88,10 @@ hr {
   justify-content: space-between;
 }
 
+.beer-item button {
+  max-width: 48%;
+}
+
 .beer-item li div {
   flex-direction: column;
 }
@@ -112,11 +116,6 @@ hr {
 
 .go-top-link:hover {
   color: #ffc107;
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -182,6 +181,7 @@ hr {
 
   .beer-item button {
     margin: 1rem 0;
+    max-width: unset;
   }
 
   .beer-item, 
@@ -192,6 +192,10 @@ hr {
 
   .search-area div {
     flex-direction: row;
+
+    p {
+      font-size: 0.9rem;
+    }
 
     input[type="text"] {
       flex: 2;
