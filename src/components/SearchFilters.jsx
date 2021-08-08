@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loadBeers } from '../redux/actions/actionCreators';
+import SEARCH_REGEX from '../constants/searchRegex';
 
 export default function SearchFilters() {
+  const [isSearchValid, setIsSearchValid] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterBy, setFilterBy] = useState();
   const dispatch = useDispatch();
@@ -14,6 +16,15 @@ export default function SearchFilters() {
 
   function handleInputChange({ target: { name, value } }) {
     changeEventMap[name](value);
+  }
+
+  function handleSearchChange({ target: { value } }) {
+    const isValid = value.trim()
+      ? SEARCH_REGEX.test(value)
+      : true;
+
+    setIsSearchValid(isValid);
+    setSearchTerm(value);
   }
 
   function handleSearchClick() {
@@ -30,8 +41,10 @@ export default function SearchFilters() {
           name="search_term"
           placeholder="Search..."
           value={searchTerm}
-          onChange={handleInputChange}
+          onChange={handleSearchChange}
         />
+        <p>{isSearchValid ? '' : 'Search term has invalid characters'}</p>
+
         <fieldset>
           <label htmlFor="beer_name">
             <input
@@ -56,11 +69,10 @@ export default function SearchFilters() {
         </fieldset>
         <button
           type="button"
-          disabled={!(filterBy && searchTerm.trim())}
+          disabled={!(filterBy && searchTerm.trim() && isSearchValid)}
           onClick={handleSearchClick}
         >
           Search
-
         </button>
       </div>
     </>
