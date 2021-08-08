@@ -154,36 +154,6 @@ export default [
     id: 4,
     name: 'No image beer',
     tagline: 'The no image beer',
-    first_brewed: '06/2011',
     description: 'The no image beer',
-    abv: 55,
-    ibu: null,
-    target_fg: 1000,
-    target_og: 1112,
-    ebc: null,
-    srm: null,
-    ph: 4.4,
-    attenuation_level: 100,
-    volume: { value: 20, unit: 'litres' },
-    boil_volume: { value: 25, unit: 'litres' },
-    method: { mash_temp: [{ temp: { value: 65, unit: 'celsius' }, duration: 75 }], fermentation: { temp: { value: 20, unit: 'celsius' } }, twist: 'Nettles: 25g at end, Juniper: 25g at end' },
-    ingredients: {
-      malt: [{ name: 'Extra Pale', amount: { value: 12.5, unit: 'kilograms' } }],
-      hops: [{
-        name: 'Nelson Sauvin', amount: { value: 6.25, unit: 'grams' }, add: 'start', attribute: 'bitter',
-      }, {
-        name: 'Centennial', amount: { value: 12.5, unit: 'grams' }, add: 'start', attribute: 'bitter',
-      }, {
-        name: 'Nelson Sauvin', amount: { value: 12.5, unit: 'grams' }, add: 'end', attribute: 'flavour',
-      }, {
-        name: 'Amarillo', amount: { value: 12.5, unit: 'grams' }, add: 'end', attribute: 'flavour',
-      }, {
-        name: 'Centennial', amount: { value: 12.5, unit: 'grams' }, add: 'end', attribute: 'flavour',
-      }],
-      yeast: 'Wyeast 3522 - Belgian Ardennes™',
-    },
-    food_pairing: ['Roasted wood pigeon with black pudding', 'Pan seared venison fillet with juniper sauce', 'Apricot coconut cake'],
-    brewers_tips: "You'll have to get this one all the way down to -70°C. Taxidermy is not optional.",
-    contributed_by: 'Sam Mason <samjbmason>',
   },
 ];
