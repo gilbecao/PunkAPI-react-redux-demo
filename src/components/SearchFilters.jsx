@@ -19,7 +19,7 @@ export default function SearchFilters() {
   }
 
   function handleSearchChange({ target: { value } }) {
-    const isValid = value.trim()
+    const isValid = value
       ? SEARCH_REGEX.test(value)
       : true;
 
@@ -28,22 +28,33 @@ export default function SearchFilters() {
   }
 
   function handleSearchClick() {
-    if (!filterBy || !searchTerm.trim()) return;
     dispatch(loadBeers(filterBy, searchTerm));
   }
 
   return (
     <section className="search-area">
-      <h2>Search</h2>
+      <h2 data-testid="search-subtitle">Search</h2>
       <div>
-        <input
-          type="text"
-          name="search_term"
-          placeholder="Search..."
-          value={searchTerm}
-          onChange={handleSearchChange}
-        />
-        <p>{isSearchValid ? '' : 'Search term has invalid characters'}</p>
+        <div className="d-flex flex-column">
+          <input
+            type="text"
+            name="search_term"
+            className="search_term"
+            placeholder="Search..."
+            value={searchTerm}
+            onChange={handleSearchChange}
+            data-testid="search_input"
+          />
+
+          {
+          isSearchValid === false
+          && (
+          <p className="text-danger">
+            Search term has invalid characters
+          </p>
+          )
+        }
+        </div>
 
         <fieldset>
           <label htmlFor="beer_name">
@@ -51,6 +62,7 @@ export default function SearchFilters() {
               id="beer_name"
               type="radio"
               name="filterBy"
+              data-testid="filterByName"
               value="beer_name"
               onChange={handleInputChange}
             />
@@ -72,6 +84,7 @@ export default function SearchFilters() {
           className="btn btn-warning"
           disabled={!(filterBy && searchTerm.trim() && isSearchValid)}
           onClick={handleSearchClick}
+          data-testid="search_button"
         >
           Search
         </button>

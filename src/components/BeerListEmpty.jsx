@@ -1,9 +1,8 @@
 import React from 'react';
+import noBeer from '../assets/no-beer-placeholder.png';
 
 export default function BeerListEmpty() {
   return (
-    <p>
-      Nothing to see here
-    </p>
+    <img src={noBeer} alt="Nothing to see here." />
   );
 }

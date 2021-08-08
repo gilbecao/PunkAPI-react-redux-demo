@@ -1,8 +1,4 @@
 @import "~bootstrap/scss/bootstrap";
-@import url('http://fonts.cdnfonts.com/css/circular-std-book');
-@import url('http://fonts.cdnfonts.com/css/circular-std-medium');
-@import url('http://fonts.cdnfonts.com/css/circular-std-bold');
-@import url('http://fonts.cdnfonts.com/css/circular-std-black');
 
 @import "../styles/mixins";
 
@@ -114,7 +110,7 @@ hr {
   margin-bottom: 1rem;
 }
 
-.go-top--link:hover {
+.go-top-link:hover {
   color: #ffc107;
 }
 

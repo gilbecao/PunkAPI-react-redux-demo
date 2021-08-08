@@ -5,20 +5,16 @@ import placeholder from '../assets/beer-placeholder.png';
 
 export default function BeerItem({ beer }) {
   return (
-    (beer?.name && beer?.description)
-      ? (
-        <li>
-          <h3>{beer?.name}</h3>
-          <div>
-            <picture>
-              <img src={beer?.image_url || placeholder} alt={beer?.name} />
-            </picture>
-            <p>{beer?.description}</p>
-          </div>
-          <hr />
-        </li>
-      )
-      : ''
+    <li>
+      <h3 data-testid="beer-name">{beer?.name}</h3>
+      <div>
+        <picture data-testid="beer-image">
+          <img src={beer?.image_url || placeholder} alt={beer?.name} />
+        </picture>
+        <p data-testid="beer-description">{beer?.description}</p>
+      </div>
+      <hr />
+    </li>
   );
 }
 

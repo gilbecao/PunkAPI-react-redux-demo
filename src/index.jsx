@@ -5,9 +5,11 @@ import reportWebVitals from './reportWebVitals';
 import configureStore from './redux/stores';
 import Dashboard from './pages/Dashboard';
 
+import preloadedState from './mocks/preloadedState.mock';
+
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={configureStore()}>
+    <Provider store={configureStore(preloadedState)}>
       <Dashboard />
     </Provider>
   </React.StrictMode>,

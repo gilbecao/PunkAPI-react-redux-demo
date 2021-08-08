@@ -11,7 +11,7 @@ export default function SeachResultsContainer({ loadedBeers }) {
 
   return loadedBeers && (
     <section className="results-area">
-      <h2>Search Results</h2>
+      <h2 data-testid="search-results-subtitle">Search Results</h2>
       {
         loadedBeers.length
           ? <BeerSearchResult beers={loadedBeers} />

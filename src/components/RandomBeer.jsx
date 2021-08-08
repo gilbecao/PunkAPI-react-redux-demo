@@ -25,6 +25,7 @@ export default function RandomBeer() {
             type="button"
             className="btn btn-warning"
             onClick={() => dispatchLoadRandom()}
+            data-testid="random-beer-button"
           >
             Another Beer
           </button>
@@ -32,6 +33,7 @@ export default function RandomBeer() {
             type="button"
             className="btn btn-warning"
             onClick={() => dispatchLoadRandom(true)}
+            data-testid="non-alcoholic-beer-button"
           >
             Random non
             <br />
