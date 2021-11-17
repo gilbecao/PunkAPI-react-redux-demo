@@ -15,7 +15,7 @@ function render(
     preloadedState,
     store = configureStore({ reducer: { beers, randomBeer }, preloadedState }),
     ...renderOptions
-  } = {},
+  } = {}
 ) {
   function Wrapper({ children }) {
     return <Provider store={store}>{children}</Provider>;

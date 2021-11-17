@@ -1,8 +1,8 @@
 import beersMock from './beers.mock';
 
-const [randomBeer, ...data] = beersMock;
+const [randomBeer, ...beers] = beersMock;
 
 export default {
-  beers: data,
+  beers,
   randomBeer,
 };

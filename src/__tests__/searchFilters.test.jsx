@@ -3,7 +3,7 @@ import { fireEvent, render, screen } from '../utils/test-utils';
 import beersMock from '../mocks/beers.mock';
 import { loadBeers } from '../redux/actions/actionCreators';
 import actionTypes from '../redux/actions/actionTypes';
-import SearchFilters from './SearchFilters';
+import SearchFilters from '../components/SearchFilters';
 
 jest.mock('../redux/actions/actionCreators');
 
@@ -22,7 +22,9 @@ describe('Given SearchFilters component', () => {
         const input = screen.getByTestId('search_input');
         fireEvent.change(input, { target: { value: '.' } });
 
-        expect(screen.getByText('Search term has invalid characters')).toBeInTheDocument();
+        expect(
+          screen.getByText('Search term has invalid characters')
+        ).toBeInTheDocument();
       });
     });
 
@@ -32,7 +34,9 @@ describe('Given SearchFilters component', () => {
         fireEvent.change(input, { target: { value: 'Leffe-Blonde' } });
       });
       test('Then should not display "Search term has invalid characters"', () => {
-        expect(screen.queryByText('Search term has invalid characters')).toBeNull();
+        expect(
+          screen.queryByText('Search term has invalid characters')
+        ).toBeNull();
       });
 
       describe('And filterBy name is checked', () => {
@@ -55,7 +59,9 @@ describe('Given SearchFilters component', () => {
         fireEvent.change(input, { target: { value: '.' } });
         fireEvent.change(input, { target: { value: '' } });
 
-        expect(screen.queryByText('Search term has invalid characters')).toBeNull();
+        expect(
+          screen.queryByText('Search term has invalid characters')
+        ).toBeNull();
       });
     });
   });

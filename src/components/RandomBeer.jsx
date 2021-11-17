@@ -13,8 +13,8 @@ export default function RandomBeer() {
   };
 
   useEffect(() => {
-    dispatchLoadRandom();
-  }, []);
+    if (beer?.name?.length === 0) dispatchLoadRandom();
+  }, [beer]);
 
   return (
     beer && (

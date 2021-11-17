@@ -35,7 +35,9 @@ export function loadRandomBeer(isNonAlcoholic = false) {
     }
 
     try {
-      const { data: [beer] } = await axios(url);
+      const {
+        data: [beer],
+      } = await axios(url);
 
       dispatch({
         type,

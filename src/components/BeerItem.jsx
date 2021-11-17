@@ -8,7 +8,7 @@ export default function BeerItem({ beer }) {
     <li>
       <h3 data-testid="beer-name">{beer?.name}</h3>
       <div>
-        <picture data-testid="beer-image">
+        <picture data-testid={`beer-image-${beer.id}`}>
           <img src={beer?.image_url || placeholder} alt={beer?.name} />
         </picture>
         <p data-testid="beer-description">{beer?.description}</p>
@@ -23,5 +23,6 @@ BeerItem.propTypes = {
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     image_url: PropTypes.string,
+    id: PropTypes.number,
   }).isRequired,
 };

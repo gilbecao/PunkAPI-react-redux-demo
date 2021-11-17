@@ -6,8 +6,10 @@ import goTop from '../utils/go-top';
 export default function BeerList({ beers }) {
   return (
     <>
-      <ul>
-        {beers.map((beer) => <BeerItem beer={beer} key={beer.id} />)}
+      <ul data-testid="beer-list">
+        {beers.map((beer) => (
+          <BeerItem beer={beer} key={beer.id} />
+        ))}
       </ul>
       <span
         className="go-top-link"
@@ -25,7 +27,5 @@ export default function BeerList({ beers }) {
 }
 
 BeerList.propTypes = {
-  beers: PropTypes.arrayOf(
-    PropTypes.shape({}),
-  ).isRequired,
+  beers: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
